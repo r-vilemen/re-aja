@@ -4,113 +4,115 @@ import { LevelUpModal } from "../components/LevelUpModal";
 import Cookies from 'js-cookie'
 
 interface Challenge {
-    type: 'body' | 'eye';
-    description: string;
-    amount: number;
+  type: 'body' | 'eye';
+  description: string;
+  amount: number;
 }
 
 interface ChallengesContextData {
-    level: number;
-    challengesCompleted: number;
-    currentExperience: number;
-    experienceToNextLevel: number;
-    activeChallenge: Challenge;
-    completeChallenge: () => void;
-    startNewChallenge: () => ValidityState;
-    resetChallenge: () => void;
-    closeLevelUpModal: () => void;
+  level: number;
+  challengesCompleted: number;
+  currentExperience: number;
+  experienceToNextLevel: number;
+  activeChallenge: Challenge;
+  completeChallenge: () => void;
+  startNewChallenge: () => void;
+  resetChallenge: () => void;
+  closeLevelUpModal: () => void;
 }
 
-interface ChallengesProviderProps {
-    children: ReactNode;
-    level: number;
-    currentExperience: number;
-    challengesCompleted: number;
+interface ChallengesProviderProps { 
+  children: ReactNode;
+  level: number;
+  currentExperience: number;
+  challengesCompleted: number;
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextData)
 
 export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
-    const [level, setLevel] = useState(rest.level ?? 1)
-    const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);
-    const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
-    const [activeChallenge, setActiveChallenge] = useState<Challenge>(null)
-    const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false)
-    const experienceToNextLevel = Math.pow(((level + 1) * 4), 2);
+  const [level, setLevel] = useState(rest.level ?? 1)
+  const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);
+  const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
+  
+  const [activeChallenge, setActiveChallenge] = useState<Challenge>(null)
+  const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false)
 
-    useEffect(() => {
-        Notification.requestPermission();
-    }, [])
+  const experienceToNextLevel = Math.pow(((level + 1) * 4), 2);
 
-    useEffect(() => {
-        Cookies.set('level', String(level))
-        Cookies.set('currentExperience', String(currentExperience))
-        Cookies.set('challengesCompleted', String(challengesCompleted))
-    }, [level, currentExperience, challengesCompleted])
+  useEffect(() => {
+    Notification.requestPermission();
+  }, [])
 
-    function startNewChallenge() {
-        const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
-        const challenge = challenges[randomChallengeIndex];
+  useEffect(() => {
+    Cookies.set('level', String(level))
+    Cookies.set('currentExperience', String(currentExperience))
+    Cookies.set('challengesCompleted', String(challengesCompleted))
+  }, [level, currentExperience, challengesCompleted])
 
-        setActiveChallenge(challenge as Challenge);
+  function startNewChallenge() {
+    const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
+    const challenge = challenges[randomChallengeIndex];
 
-        new Audio('/notification.mp3').play();
+    setActiveChallenge(challenge as Challenge);
 
-        if (Notification.permission === 'granted') {
-            new Notification('Novo desafio 🎉', {
-                body: `Valendo ${challenge.amount} de xp!`,
-                silent: false,
-            });
-        }
+    new Audio('/notification.mp3').play();
+
+    if (Notification.permission === 'granted') {
+      new Notification('Novo desafio 🎉', {
+        body: `Valendo ${challenge.amount} de xp!`,
+        silent: false,
+      });
+    }
+  }
+
+  function levelUp() {
+    setLevel(level + 1);
+    setIsLevelUpModalOpen(true);
+  }
+
+  function closeLevelUpModal() {
+    setIsLevelUpModalOpen(false);
+  }
+
+  function completeChallenge() {
+    if (!activeChallenge) {
+      return;
     }
 
-    function levelUp() {
-        setLevel(level + 1);
-        setIsLevelUpModalOpen(true);
+    const { amount } = activeChallenge
+
+    let finalExperience = currentExperience + amount;
+
+    if (finalExperience >= experienceToNextLevel) {
+      finalExperience = finalExperience - experienceToNextLevel;
+      levelUp()
     }
 
-    function closeLevelUpModal() {
-        setIsLevelUpModalOpen(false);
-    }
+    setChallengesCompleted(challengesCompleted + 1);
+    setCurrentExperience(finalExperience);
+    setActiveChallenge(null);
+  }
 
-    function completeChallenge() {
-        if (!activeChallenge) {
-            return;
-        }
+  function resetChallenge() {
+    setActiveChallenge(null); 
+  }
 
-        const { amount } = activeChallenge
+  return (
+    <ChallengesContext.Provider value={{
+      level,
+      challengesCompleted,
+      currentExperience,
+      experienceToNextLevel,
+      activeChallenge,
+      completeChallenge,
+      startNewChallenge,
+      resetChallenge,
+      closeLevelUpModal,
+    }}>
+      {children}
 
-        let finalExperience = currentExperience + amount;
-
-        if (finalExperience) >= experienceToNextLevel) {
-            finalExperience = finalExperience - experienceToNextLevel;
-            levelUp()
-        }
-
-        setChallengesCompleted(challengesCompleted + 1);
-        setCurrentExperience(finalExperience);
-        setActiveChallenge(null);
-    }
-
-    function resetChallenge() {
-        setActiveChallenge(null);
-    }
-
-    return (
-        <ChallengesContext.Provider value={{
-            level,
-            challengesCompleted,
-            currentExperience,
-            experienceToNextLevel,
-            activeChallenge,
-            completeChallenge,
-            startNewChallenge,
-            resetChallenge,
-            closeLevelUpModal,
-        }}>
-            {children}
-
-            {isLevelUpModalOpen && <LevelUpModal />}
-        </ChallengesContext.Provider>
-    )
+      { isLevelUpModalOpen && <LevelUpModal/> }
+    </ChallengesContext.Provider>
+  )
 }
