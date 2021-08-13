@@ -1,3 +1,42 @@
-# Next Lvel Week 4 - RocketSeat
+# Re.aja
 
-### Projeto Re-aJa, com base no Move-it da RocketSeat.
+
+###         Aja, se mecha, mude seu comportamento físico para obter um melhor desemponho dentro do seu trabalho, além de obter mais saúde para seu corpo e produtividade no trabalho, sua experiência no cotidiano será bem mais empolgante !
+-------------------------------------------------------------------------------------------------------------
+
+#### Qual o objetivo do Re.aja ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*Projeto baseado no Next Level Week 4 da RocketSeat - Move.it
