@@ -19,7 +19,7 @@
 .experienceBar > div > div {
   height: 10px;
   border-radius: 4px;
-  background: var(--green);
+  background: linear-gradient(90deg, rgba(255, 150, 102, 0.19) -1.42%, var(--orange-dark));
   transition: width 0.4s;
 }
 
