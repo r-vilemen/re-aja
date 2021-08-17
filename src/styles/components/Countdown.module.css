@@ -54,7 +54,7 @@ button.startCycleButton {
 }
 
 button.startCycleButton:not([disabled]):hover {
-  background: var(--blue-dark);
+  background: var(--orange-dark);
 }
 
 button.startCycleButtonActive {
