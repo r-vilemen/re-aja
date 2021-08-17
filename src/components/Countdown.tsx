@@ -34,7 +34,7 @@ export function Countdown() {
         <button
           disabled
           className={styles.startCycleButton} 
-        > Ciclo encerrado
+        > Ciclo encerrado 🚫
         </button>
       ) : (
         <>
