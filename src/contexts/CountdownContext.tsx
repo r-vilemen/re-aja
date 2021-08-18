@@ -20,14 +20,14 @@ export const CountdownContext = createContext({} as CountdownContextData)
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
   const { startNewChallenge } = useChallenges();
-  const [time, setTime] = useState(0.2 * 6000);
+  const [time, setTime] = useState(20 * 60);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
 
   useEffect(() => {
     window.onbeforeunload = () => {
       if (isActive) {
-        return 'Você perderá o progresso do countdown até aqui, tem certeza?'
+        return 'Você perderá o progresso do countdown até aqui. Tem certeza!?'
       }
     };
   }, [isActive])
@@ -51,7 +51,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
   function resetCountdown() {
     clearTimeout(countdownTimeout);
     setIsActive(false);
-    setTime(0.2 * 6000);
+    setTime(20 * 60);
     setHasFinished(false);
   }
 
