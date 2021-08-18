@@ -7,6 +7,12 @@
   font-size: 14px;
 }
 
+.experienceBar > span:last-child {
+  font-size: 14px;
+  color: var(--orange);
+}
+
+
 .experienceBar > div {
   flex: 1;
   height: 10px;
