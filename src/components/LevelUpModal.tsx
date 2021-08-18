@@ -9,7 +9,7 @@ export function LevelUpModal() {
       <div className={styles.content}>
         <header>{level}</header>
 
-        <strong>Parabéns</strong>
+        <strong>Parabéns !</strong>
         <p>Você alcançou um novo nível.</p>
 
         <button type="button" onClick={closeLevelUpModal}>
