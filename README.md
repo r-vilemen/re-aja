@@ -15,7 +15,7 @@
 
    Fazer com que você não fique muito tempo parado na frente da tela do monitor
 
-### Quais as tecnologias utilizada ?
+### Quais foram as tecnologias utilizadas ?
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
@@ -33,6 +33,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
    3º: Inicie o servidor com `yarn dev`.
 
    4º: Acesse [`localhost:3000`](http://localhost:3000) em seu navegador.
+
+   
 
 
 
