@@ -24,7 +24,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [TypeScript](https://www.typescriptlang.org/)
 
 ### Quer executar e testar? Siga estes passos abaixo
-👇🏼👇🏼👇🏼
+
+      ##Forma 1:
+
+   - Acesse: https://re-aja.vercel.app/
+
+      ##Forma 2:
 
    1º: Clone o repositório;
 
@@ -33,9 +38,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
    3º: Inicie o servidor com `yarn dev`.
 
    4º: Acesse [`localhost:3000`](http://localhost:3000) em seu navegador.
-
-   
-
+    
 
 
 
