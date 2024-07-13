@@ -24,8 +24,8 @@ export function ChallengeBox() {
 
           <main>
             {activeChallenge.type === 'body'
-              ? <img src="/icons/body.svg" />
-              : <img src="/icons/eye.svg" />
+              ? <img alt='body' src="/icons/body.svg" />
+              : <img alt='eye' src="/icons/eye.svg" />
             }
             <strong>Novo desafio</strong>
             <p>{activeChallenge.description}</p>
