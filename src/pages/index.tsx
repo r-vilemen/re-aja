@@ -31,13 +31,13 @@ export default function Home({ level, currentExperience, challengesCompleted }: 
           <ExperienceBar />
 
           <section>
+
+            <ChallengeBox />
             <div className={styles.cycleContainer}>
               <Profile />
               <CompletedChallenges />
               <Countdown />
             </div>
-
-            <ChallengeBox />
           </section>
         </main>
       </CountdownProvider>

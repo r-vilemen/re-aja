@@ -30,7 +30,7 @@
   border-left: 1px solid #f0f1f3;
 }
 
-.countdown > span {
+.countdown>span {
   font-size: 6.25rem;
   margin: 0 0.5rem;
 }
@@ -69,4 +69,54 @@ button.startCycleButton[disabled] {
   background: var(--white);
   color: var(--text);
   cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+  .countdown div {
+    font-size: 7rem;
+  }
+
+  .countdown>span {
+    font-size: 5rem;
+  }
+
+  button.startCycleButton {
+    height: 4rem;
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .countdown {
+    flex-direction: row;
+  }
+
+  .countdown div {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  .countdown>span {
+    font-size: 4rem;
+  }
+
+  button.startCycleButton {
+    height: 3.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown div {
+    font-size: 3rem;
+  }
+
+  .countdown>span {
+    font-size: 2.5rem;
+  }
+
+  button.startCycleButton {
+    height: 3rem;
+    font-size: 0.875rem;
+  }
 }

@@ -100,3 +100,94 @@
 .challengeContainer p img {
   margin-bottom: 1rem;
 }
+
+@media (max-width: 1024px) {
+  .challengeContainer {
+    padding: 1rem 1.5rem;
+  }
+
+  .challengeNotActive p {
+    max-width: 80%;
+  }
+
+  .challengeActive header {
+    font-size: 1rem;
+    padding: 0 1.5rem 1rem;
+  }
+
+  .challengeActive main strong {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.5rem;
+  }
+
+  .challengeActive footer {
+    grid-template-columns: 1fr;
+  }
+
+  .challengeActive footer button {
+    height: 2.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .challengeContainer {
+    padding: 0.5rem 1rem;
+    margin-top: 2rem;
+  }
+
+  .challengeNotActive strong {
+    font-size: 1.25rem;
+  }
+
+  .challengeNotActive p {
+    max-width: 90%;
+    margin-top: 2rem;
+  }
+
+  .challengeActive header {
+    font-size: 0.875rem;
+    padding: 0 1rem 0.75rem;
+  }
+
+  .challengeActive main strong {
+    font-size: 1.25rem;
+    margin: 0.75rem 0 0.5rem;
+  }
+
+  .challengeActive footer button {
+    height: 2.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .challengeContainer {
+    padding: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .challengeNotActive strong {
+    font-size: 1rem;
+  }
+
+  .challengeNotActive p {
+    max-width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .challengeActive header {
+    font-size: 0.75rem;
+    padding: 0 0.5rem 0.5rem;
+  }
+
+  .challengeActive main strong {
+    font-size: 1rem;
+    margin: 0.5rem 0 0.25rem;
+  }
+
+  .challengeActive footer button {
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+}
