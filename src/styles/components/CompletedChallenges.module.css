@@ -16,3 +16,49 @@
   font-size: 1.5rem;
   color: var(--orange-dark);
 }
+
+@media (max-width: 1024px) {
+  .completedChallenges {
+    margin: 3rem 0;
+    padding-bottom: 0.75rem;
+  }
+
+  .completedChallenges span:first-child {
+    font-size: 1.125rem;
+  }
+
+  .completedChallenges span:last-child {
+    font-size: 1.375rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .completedChallenges {
+    /* flex-direction: column; */
+    align-items: flex-start;
+    margin: 2.5rem 0;
+    padding-bottom: 0.5rem;
+    /* padding-right: 4rem; */
+  }
+
+  .completedChallenges span:first-child,
+  .completedChallenges span:last-child {
+    font-size: 1.25rem;
+  }
+
+  .completedChallenges span:last-child {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .completedChallenges {
+    margin: 2rem 0;
+    padding-bottom: 0.25rem;
+  }
+
+  .completedChallenges span:first-child,
+  .completedChallenges span:last-child {
+    font-size: 0.875rem;
+  }
+}

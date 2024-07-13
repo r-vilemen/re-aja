@@ -17,9 +17,7 @@
   padding: 2rem 3rem;
   border-radius: 5px;
   box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.05);
-
   text-align: center;
-
   position: relative;
 }
 
@@ -49,4 +47,61 @@
   background: transparent;
   border: 0;
   font-size: 0px;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    max-width: 350px;
+    padding: 1.5rem 2.5rem;
+  }
+
+  .content header {
+    font-size: 7rem;
+  }
+
+  .content strong {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    max-width: 300px;
+    padding: 1.5rem 2rem;
+  }
+
+  .content header {
+    font-size: 6rem;
+  }
+
+  .content strong {
+    font-size: 1.75rem;
+  }
+
+  .content p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    max-width: 250px;
+    padding: 1rem 1.5rem;
+  }
+
+  .content header {
+    font-size: 5rem;
+  }
+
+  .content strong {
+    font-size: 1.5rem;
+  }
+
+  .content p {
+    font-size: 0.75rem;
+  }
 }

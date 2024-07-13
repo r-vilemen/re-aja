@@ -16,7 +16,7 @@ interface CountdownContextData {
 
 let countdownTimeout: NodeJS.Timeout;
 
-export const CountdownContext = createContext({} as CountdownContextData)
+export const CountdownContext = createContext({} as CountdownContextData);
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
   const { startNewChallenge } = useChallenges();
@@ -30,19 +30,19 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
         return 'Você perderá o progresso do countdown até aqui. Tem certeza!?'
       }
     };
-  }, [isActive])
+  }, [isActive]);
 
   useEffect(() => {
     if (isActive && time > 0) {
       countdownTimeout = setTimeout(() => {
-         setTime(time - 1);
-       }, 1000);
+        setTime(time - 1);
+      }, 1000);
     } else if (isActive && time === 0) {
       startNewChallenge();
       setHasFinished(true);
       setIsActive(false);
     }
-  }, [isActive, time]);
+  }, [isActive, time, startNewChallenge]); // Incluindo startNewChallenge no array de dependências
 
   function startCountdown() {
     setIsActive(true);
@@ -59,14 +59,16 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
   const seconds = time % 60;
 
   return (
-    <CountdownContext.Provider value={{
-      isActive,
-      resetCountdown,
-      hasFinished,
-      startCountdown,
-      minutes,
-      seconds,
-    }}>
+    <CountdownContext.Provider
+      value={{
+        isActive,
+        resetCountdown,
+        hasFinished,
+        startCountdown,
+        minutes,
+        seconds,
+      }}
+    >
       {children}
     </CountdownContext.Provider>
   );

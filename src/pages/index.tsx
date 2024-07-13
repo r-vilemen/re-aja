@@ -8,6 +8,7 @@ import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { CountdownProvider } from '../contexts/CountdownContext';
 import styles from '../styles/pages/Home.module.css'
 import { GetServerSideProps } from 'next';
+import useDeviceType, {DeviceType} from '../hooks/useDeviceType';
 
 interface HomeProps {
   level: number;
@@ -16,6 +17,8 @@ interface HomeProps {
 }
 
 export default function Home({ level, currentExperience, challengesCompleted }: HomeProps) {
+  const deviceType = useDeviceType();
+
   return (
     <ChallengesProvider
       level={level}
@@ -31,13 +34,14 @@ export default function Home({ level, currentExperience, challengesCompleted }: 
           <ExperienceBar />
 
           <section>
+
+            {deviceType === DeviceType.Mobile && <ChallengeBox />}
             <div className={styles.cycleContainer}>
               <Profile />
               <CompletedChallenges />
               <Countdown />
             </div>
-
-            <ChallengeBox />
+            {deviceType === DeviceType.Desktop && <ChallengeBox />}
           </section>
         </main>
       </CountdownProvider>
