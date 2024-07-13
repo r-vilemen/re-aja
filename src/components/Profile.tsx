@@ -6,7 +6,7 @@ export function Profile() {
 
   return (
     <div className={styles.profileContainer}>
-      <a href="https://github.com/r-vilemen" target="_blank">
+      <a rel="noopener" href="https://github.com/r-vilemen" target="_blank">
         <img
           style={{ width: 100, borderRadius: 50 }}
           src="https://github.com/r-vilemen.png"
@@ -14,7 +14,7 @@ export function Profile() {
         />
       </a>
       <div>
-        <a href="https://github.com/r-vilemen" target="_blank">
+        <a rel="noopener" href="https://github.com/r-vilemen" target="_blank">
           <strong>Rodrigo Vilemen</strong>
         </a>
         <p>
