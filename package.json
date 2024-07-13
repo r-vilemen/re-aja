@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "test": "jest"
   },
@@ -25,6 +25,11 @@
     "@types/node": "^18.14.5",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "eslint": "^8.35.0"
+    "eslint": "7.32.0",
+    "eslint-config-next": "^14.2.5",
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.24.0",
+    "eslint-plugin-react-hooks": "4.3.0"
   }
 }
