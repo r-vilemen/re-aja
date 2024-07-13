@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useChallenges } from '../hooks/useChallenges';
 import styles from '../styles/components/LevelUpModal.module.css'
 
@@ -13,7 +14,7 @@ export function LevelUpModal() {
         <p>Você alcançou um novo nível.</p>
 
         <button type="button" onClick={closeLevelUpModal} title="Close Modal">
-          <img alt='close' src="/icons/close.svg" />
+          <Image width={100} height={100} src="/icons/close.svg"  alt='close' />
         </button>
       </div>
     </div>
