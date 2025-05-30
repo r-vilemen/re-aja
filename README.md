@@ -31,7 +31,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ### Forma 2:
 
-1º: Clone o repositóriocom o comando abaixo:
+1º: Clone o repositório com o comando abaixo:
 
 ```javascript
 git clone https://github.com/r-vilemen/re-aja.git
